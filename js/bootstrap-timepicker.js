@@ -750,8 +750,14 @@
             hour = 12;
           }
         } else {
-          if (hour >= 24) {
+          if (hour > 24) {
             hour = 23;
+          } else if (hour===24) {
+            if(minute===0 && second===0) {
+              hour = 24;
+            } else {
+              hour = 23;
+            }
           } else if (hour < 0) {
             hour = 0;
           }

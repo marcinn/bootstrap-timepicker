@@ -261,5 +261,11 @@ describe('Keyboard events feature', function() {
 
     $input3.autotype('{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}25:60:60{{tab}}');
     expect(tp3.getTime()).toBe('23:59:59');
+
+    $input3.autotype('{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}24:00:00{{tab}}');
+    expect(tp3.getTime()).toBe('24:00:00');
+
+    $input3.autotype('{{back}}{{back}}{{back}}{{back}}{{back}}{{back}}15{{tab}}');
+    expect(tp3.getTime()).toBe('23:15:00');
   });
 });
