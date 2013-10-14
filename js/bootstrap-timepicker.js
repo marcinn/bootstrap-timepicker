@@ -318,7 +318,7 @@
     },
 
     getTime: function() {
-      if (!this.hour && !this.minute && !this.second) {
+      if (this.hour==='' && this.minute==='' && this.second==='') {
         return '';
       }
 
@@ -670,7 +670,7 @@
     },
 
     setTime: function(time, ignoreWidget) {
-      if (!time) {
+      if (time==null||time==='') {
         this.clear();
         return;
       }
@@ -709,9 +709,9 @@
 
         timeArray = time.split(':');
 
-        hour = timeArray[0] ? timeArray[0].toString() : timeArray.toString();
-        minute = timeArray[1] ? timeArray[1].toString() : '';
-        second = timeArray[2] ? timeArray[2].toString() : '';
+        hour = typeof(timeArray[0])!=='undefined' ? timeArray[0].toString() : timeArray.toString();
+        minute = typeof(timeArray[1])!=='undefined' ? timeArray[1].toString() : '';
+        second = typeof(timeArray[2])!=='undefined' ? timeArray[2].toString() : '';
 
         // idiot proofing
         if (hour.length > 4) {
