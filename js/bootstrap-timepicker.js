@@ -119,6 +119,8 @@
       } else {
         if (this.hour <= 0) {
           this.hour = 24;
+          this.minute = 0;
+          this.second = 0;
         } else {
           this.hour--;
         }
@@ -137,6 +139,9 @@
       if (newVal < 0) {
         this.decrementHour();
         this.minute = newVal + 60;
+        if(this.minute>0 && this.hour===24) {
+          this.hour = 23;
+        }
       } else {
         this.minute = newVal;
       }
@@ -538,7 +543,11 @@
         this.minute = newVal - 60;
       } else {
         this.minute = newVal;
+        if (this.hour === 24) {
+          this.hour = 0;
+        }
       }
+
     },
 
     incrementSecond: function() {
