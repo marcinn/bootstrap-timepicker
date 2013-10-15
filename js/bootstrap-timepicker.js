@@ -118,7 +118,7 @@
         }
       } else {
         if (this.hour <= 0) {
-          this.hour = 23;
+          this.hour = 24;
         } else {
           this.hour--;
         }
@@ -511,8 +511,14 @@
         }
       }
       if (this.hour === 23) {
-        this.hour = 0;
+        this.hour = 24;
+        this.second = 0;
+        this.minute = 0;
 
+        return;
+      }
+      if (this.hour === 24) {
+        this.hour = 0;
         return;
       }
       this.hour++;
@@ -656,6 +662,8 @@
 
           this.update();
 
+        } else if (defaultTime === null) {
+          this.clear();
         } else if (defaultTime === false) {
           this.hour = 0;
           this.minute = 0;

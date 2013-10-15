@@ -349,11 +349,16 @@ describe('Timepicker feature', function() {
     $input3.val('22:15:30');
     tp3.updateFromElementVal();
     tp3.incrementHour();
-    tp3.incrementHour();
 
-    expect(tp3.hour).toBe(0);
+    expect(tp3.hour).toBe(23);
     expect(tp3.minute).toBe(15);
     expect(tp3.second).toBe(30);
+
+    tp3.incrementHour();
+    expect(tp3.hour).toBe(24);
+    expect(tp3.minute).toBe(0);
+    expect(tp3.second).toBe(0);
+
   });
 
   it('should increment minutes with incrementMinute method', function() {
